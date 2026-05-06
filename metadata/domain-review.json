@@ -1,0 +1,73 @@
+{
+  "repo": "silver-algo-hash-flow",
+  "language": "OCaml",
+  "category": "Algorithms",
+  "goal": "Package an OCaml local lab for hash analysis with windowed input fixtures, late-data behavior checks, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "input width",
+      "search depth",
+      "boundary pressure",
+      "complexity"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "input width",
+      "signal": 53,
+      "slack": 44,
+      "drag": 22,
+      "confidence": 54,
+      "score": 138,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "search depth",
+      "signal": 49,
+      "slack": 49,
+      "drag": 27,
+      "confidence": 84,
+      "score": 150,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "boundary pressure",
+      "signal": 51,
+      "slack": 26,
+      "drag": 30,
+      "confidence": 67,
+      "score": 105,
+      "lane": "watch"
+    },
+    {
+      "name": "recovery",
+      "focus": "complexity",
+      "signal": 59,
+      "slack": 48,
+      "drag": 11,
+      "confidence": 75,
+      "score": 208,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "input width",
+      "signal": 58,
+      "slack": 34,
+      "drag": 10,
+      "confidence": 52,
+      "score": 172,
+      "lane": "ship"
+    }
+  ]
+}
